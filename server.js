@@ -43,7 +43,7 @@ app.use("/contactform", contactFormEmailTncRoutes);
 //   });
 
 mongoose
-  .connect("mongodb://localhost:27017/websiteContent")
+  .connect(process.env.MONGO_URI_VPS)
   .then(() => {
     app.listen(PORT, () => {
       console.log("listening on port", PORT);

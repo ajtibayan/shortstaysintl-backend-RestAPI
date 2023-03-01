@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const nodeMailer = require("nodemailer");
 
@@ -45,12 +47,12 @@ router.post("/", (req, res) => {
 
   async function main() {
     const transporter = nodeMailer.createTransport({
-      host: "mail.9cmarketing.com",
+      host: process.env.SMTP_HOST,
       port: 465,
       secure: true,
       auth: {
-        user: "aj@9cmarketing.com",
-        pass: "DonneTTe1120",
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PWRD,
       },
     });
 
