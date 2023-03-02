@@ -16,6 +16,7 @@ router.post("/", (req, res) => {
   const contactForm = {
     tncEvents: "Training And Coaching Event Form",
     cpForm: "Contact Page Form",
+    hpForm: "Home Page Rental Analysis Form",
   };
 
   // Instantiate html email body
@@ -38,6 +39,15 @@ router.post("/", (req, res) => {
         <p>Phone: <strong>${req.body.phone}</strong></p>
         <p>Email: <strong>${req.body.email}</strong></p>
         <p>Property Type: <strong>${req.body.propType}</strong></p>
+        <p>Address: <strong>${req.body.address}</strong></p>
+`;
+      break;
+    case "hpForm":
+      html = `
+        <h3>${contactForm[req.body.contactFormType]}</h3>
+        <p>Name: <strong>${req.body.fname} ${req.body.lname}</strong></p>
+        <p>Phone: <strong>${req.body.phone}</strong></p>
+        <p>Email: <strong>${req.body.email}</strong></p>
         <p>Address: <strong>${req.body.address}</strong></p>
 `;
       break;
